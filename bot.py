@@ -33,9 +33,12 @@ def download_video(url):
         'outtmpl': f'{DOWNLOAD_DIR}/%(title)s.%(ext)s',
         'format': 'best[ext=mp4]',
         'noplaylist': True,
-        'cookiefile': 'cookies.txt',
-        'quiet': True
+               'quiet': True
     }
+
+# ✅ Add cookies only
+if os.path.exists("cookies.txt"):
+    ydl_opts['cookiefile'] = 'cookies.txt'
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
