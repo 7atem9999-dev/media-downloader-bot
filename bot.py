@@ -61,7 +61,6 @@ def download_youtube_video(url):
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
         filename = ydl.prepare_filename(info)
-      
 
         if not os.path.exists(filename):
             filename = os.path.splitext(filename)[0] + ".mp4"
