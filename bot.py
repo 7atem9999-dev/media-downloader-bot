@@ -51,7 +51,7 @@ def download_video(url):
 def download_youtube_video(url):
     ydl_opts = {
         'outtmpl': f'{DOWNLOAD_DIR}/%(title)s.%(ext)s',
-        'format': 'bestvideo+bestaudio/best',
+        'format': 'best[height<=720][filesize<50M]',
         'cookiefile': 'cookies.txt',
         'merge_output_format': 'mp4',
         'noplaylist': True,
