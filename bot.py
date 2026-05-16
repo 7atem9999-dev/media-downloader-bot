@@ -55,11 +55,15 @@ def download_youtube_video(url):
     ydl_opts = {
         'outtmpl': f'{DOWNLOAD_DIR}/%(title)s.%(ext)s',
         'format': 'best[height<=720][filesize<50M]',
-        'cookiefile': 'cookies.txt',
         'merge_output_format': 'mp4',
         'noplaylist': True,
         'quiet': True
     }
+
+    
+# ✅ Add cookies only if exist
+if os.path.exists("cookies.txt"):
+    ydl_opts['cookiefile'] = 'cookies.txt'
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
@@ -76,8 +80,7 @@ def download_audio(url):
     ydl_opts = {
         'outtmpl': f'{DOWNLOAD_DIR}/%(title)s.%(ext)s',
         'format': 'bestaudio',
-        'cookiefile': 'cookies.txt',
-        'noplaylist': True,
+             'noplaylist': True,
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
@@ -86,6 +89,12 @@ def download_audio(url):
         'quiet': True
     }
 
+
+# ✅ Add cookies only if exist
+if os.path.exists("cookies.txt"):
+    ydl_opts['cookiefile'] = 'cookies.txt'
+
+    
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
      
