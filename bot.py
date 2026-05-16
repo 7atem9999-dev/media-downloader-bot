@@ -156,7 +156,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # ✅ Start bot
 if __name__ == "__main__":
-    TOKEN = "8747088201:AAFa1RKbNj68nO_bOzz88o5d8d7vKgyy7kU"  # Railway env variable
+    TOKEN = os.getenv("BOT_TOKEN")  # Railway env variable
 
     app = ApplicationBuilder().token(TOKEN).build()
 
