@@ -1,4 +1,12 @@
 import os
+
+# Create cookies file from environment variable
+if os.getenv("YT_COOKIES"):
+    with open("cookies.txt", "w", encoding="utf-8") as f:
+        f.write(os.getenv("YT_COOKIES"))
+``
+
+import os
 import yt_dlp
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
