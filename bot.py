@@ -86,7 +86,7 @@ def download_audio(url):
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
-        'cookiefile': 'cookies.txt',
+     
         filename = os.path.splitext(ydl.prepare_filename(info))[0] + ".mp3"
         return filename
 
