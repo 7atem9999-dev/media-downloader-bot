@@ -26,6 +26,7 @@ def download_video(url):
         'outtmpl': f'{DOWNLOAD_DIR}/%(title)s.%(ext)s',
         'format': 'best[ext=mp4]',
         'noplaylist': True,
+        'cookiefile': 'cookies.txt',
         'quiet': True
     }
 
@@ -44,6 +45,7 @@ def download_youtube_video(url):
     ydl_opts = {
         'outtmpl': f'{DOWNLOAD_DIR}/%(title)s.%(ext)s',
         'format': 'bestvideo+bestaudio/best',
+        'cookiefile': 'cookies.txt',
         'merge_output_format': 'mp4',
         'noplaylist': True,
         'quiet': True
@@ -52,6 +54,7 @@ def download_youtube_video(url):
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
         filename = ydl.prepare_filename(info)
+        'cookiefile': 'cookies.txt',
 
         if not os.path.exists(filename):
             filename = os.path.splitext(filename)[0] + ".mp4"
@@ -64,6 +67,7 @@ def download_audio(url):
     ydl_opts = {
         'outtmpl': f'{DOWNLOAD_DIR}/%(title)s.%(ext)s',
         'format': 'bestaudio',
+        'cookiefile': 'cookies.txt',
         'noplaylist': True,
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
@@ -75,6 +79,7 @@ def download_audio(url):
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
+        'cookiefile': 'cookies.txt',
         filename = os.path.splitext(ydl.prepare_filename(info))[0] + ".mp3"
         return filename
 
