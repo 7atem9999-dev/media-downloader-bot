@@ -315,7 +315,7 @@ if __name__ == "__main__":
     TOKEN = os.getenv("BOTTOKEN")
     if not TOKEN:
         raise ValueError(
-            "BOT_TOKEN environment variable is not set. "
+            "BOTTOKEN environment variable is not set. "
             "Add it to your Railway (or other host) environment variables."
         )
 
