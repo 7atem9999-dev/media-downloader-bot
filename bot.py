@@ -99,8 +99,7 @@ def is_youtube(url: str) -> bool:
 
 def _base_opts() -> dict:
     """Common yt-dlp options shared by all download functions."""
-    def _base_opts() -> dict:
-    """Common yt-dlp options shared by all download functions."""
+  
     opts = {
         "outtmpl": f"{DOWNLOAD_DIR}/%(title)s.%(ext)s",
         "noplaylist": True,
