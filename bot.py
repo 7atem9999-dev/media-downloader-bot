@@ -4,8 +4,8 @@ import sys
 
 # DEBUG - remove after fixing
 print("=== ENV DEBUG ===")
-print(f"BOTTOKEN exists: {'BOTTOKEN' in os.environ}")
-print(f"BOTTOKEN value: '{os.getenv('BOTTOKEN', 'NOT FOUND')}'")
+print(f"BOT_TOKEN exists: {'BOT_TOKEN' in os.environ}")
+print(f"BOT_TOKEN value: '{os.getenv('BOT_TOKEN', 'NOT FOUND')}'")
 print(f"All env keys: {list(os.environ.keys())}")
 print("=================")
 sys.stdout.flush()
@@ -312,10 +312,10 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 # Entry point
 # ─────────────────────────────────────────────
 if __name__ == "__main__":
-    TOKEN = os.getenv("BOTTOKEN")
+    TOKEN = "8747088201:AAEe24CHxDdW3DHX4U0iKJOE668MfxNAVZ8"
     if not TOKEN:
         raise ValueError(
-            "BOTTOKEN environment variable is not set. "
+            "BOT_TOKEN environment variable is not set. "
             "Add it to your Railway (or other host) environment variables."
         )
 
