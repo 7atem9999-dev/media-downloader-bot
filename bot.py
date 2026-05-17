@@ -172,7 +172,7 @@ def download_generic_video(url: str) -> str:
 def download_youtube_video(url: str) -> str:
     """Download a YouTube video (≤720p, ≤49 MB)."""
     opts = _base_opts()
-    opts["format"] = "bestvideo[height<=720]+bestaudio/best[height<=720]/best"
+    opts["format"] = "bv*+ba/b/bv+ba"
     opts["merge_output_format"] = "mp4"
 
     with yt_dlp.YoutubeDL(opts) as ydl:
