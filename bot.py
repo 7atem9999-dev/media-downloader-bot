@@ -198,12 +198,12 @@ def download_youtube_video(url: str) -> str:
         opts["format"] = "bv*+ba/b/bv+ba/best"
         opts["merge_output_format"] = "mp4"
 
-    with yt_dlp.YoutubeDL(opts) as ydl:
-        info = ydl.extract_info(url, download=True)
+        with yt_dlp.YoutubeDL(opts) as ydl:
+            info = ydl.extract_info(url, download=True)
         return _resolve_filename(ydl, info, fallback_ext="mp4")
 
 #for Fallback
-except Exception:
+    except Exception:
         # fallback أخير
         opts = _base_opts()
         opts["format"] = "best"
