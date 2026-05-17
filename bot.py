@@ -47,12 +47,17 @@ logger = logging.getLogger(__name__)
 # ─────────────────────────────────────────────
 cookies = os.getenv("YT_COOKIES")
 
+# NEW ✅
+USE_COOKIES = False
+
 if cookies and "# Netscape HTTP Cookie File" in cookies:
     with open(COOKIES_FILE, "w", encoding="utf-8") as f:
         f.write(cookies.strip())
-    logger.info("Cookies file written successfully.")
+    USE_COOKIES = True
+    logger.info("✅ Cookies enabled")
 else:
-    logger.warning("Invalid or missing cookies. Skipping cookies setup.")
+    logger.warning("⚠️ Cookies disabled (invalid or missing)")
+
 
 
 # ─────────────────────────────────────────────
@@ -101,7 +106,7 @@ def _base_opts() -> dict:
         "no_warnings": True,
        
     }
-    if os.path.exists(COOKIES_FILE):
+    if USE_COOKIES:
         opts["cookiefile"] = COOKIES_FILE
     return opts
 
