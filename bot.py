@@ -169,7 +169,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 if __name__ == "__main__":
    
     TOKEN = os.getenv("BOT_TOKEN") # Railway env variable
-    print("TOKEN =", TOKEN)
+    
  
 
     app = ApplicationBuilder().token(TOKEN).build()
