@@ -1,5 +1,14 @@
 import os
 import logging
+import sys
+
+# DEBUG - remove after fixing
+print("=== ENV DEBUG ===")
+print(f"BOT_TOKEN exists: {'BOT_TOKEN' in os.environ}")
+print(f"BOT_TOKEN value: '{os.getenv('BOT_TOKEN', 'NOT FOUND')}'")
+print(f"All env keys: {list(os.environ.keys())}")
+print("=================")
+sys.stdout.flush()
 from collections import OrderedDict
 from urllib.parse import urlparse
 
