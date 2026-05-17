@@ -4,8 +4,8 @@ import sys
 
 # DEBUG - remove after fixing
 print("=== ENV DEBUG ===")
-print(f"BOT_TOKEN exists: {'BOTTOKEN' in os.environ}")
-print(f"BOT_TOKEN value: '{os.getenv('BOTTOKEN', 'NOT FOUND')}'")
+print(f"BOTTOKEN exists: {'BOTTOKEN' in os.environ}")
+print(f"BOTTOKEN value: '{os.getenv('BOTTOKEN', 'NOT FOUND')}'")
 print(f"All env keys: {list(os.environ.keys())}")
 print("=================")
 sys.stdout.flush()
