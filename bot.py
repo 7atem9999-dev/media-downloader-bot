@@ -96,6 +96,7 @@ def _base_opts() -> dict:
         "noplaylist": True,
         "quiet": True,
         "no_warnings": True,
+        "cookiesfrombrowser": ("chrome",)
     }
     if os.path.exists(COOKIES_FILE):
         opts["cookiefile"] = COOKIES_FILE
