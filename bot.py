@@ -27,6 +27,7 @@ from telegram.ext import (
 # Configuration
 # ─────────────────────────────────────────────
 DOWNLOAD_DIR = "downloads"
+COOKIES_FILE = "cookies.txt"  
 MAX_FILE_SIZE_BYTES = 49 * 1024 * 1024   # 49 MB (Telegram bot limit is 50 MB)
 MAX_USER_CACHE = 500                      # Max entries in user_links dict
 
