@@ -48,7 +48,7 @@ COOKIES_FILE = "cookies.txt"
 
 if os.getenv("YT_COOKIES"):
     with open(COOKIES_FILE, "w", encoding="utf-8") as f:
-        f.write(os.getenv("YT_COOKIES"))
+        f.write(cookies.strip())
     logger.info("Cookies file written from environment variable.")
 
 
