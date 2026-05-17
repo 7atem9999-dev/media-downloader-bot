@@ -4,8 +4,8 @@ import sys
 
 # DEBUG - remove after fixing
 print("=== ENV DEBUG ===")
-print(f"BOT_TOKEN exists: {'BOT_TOKEN' in os.environ}")
-print(f"BOT_TOKEN value: '{os.getenv('BOT_TOKEN', 'NOT FOUND')}'")
+print(f"BOT_TOKEN exists: {'BOTTOKEN' in os.environ}")
+print(f"BOT_TOKEN value: '{os.getenv('BOTTOKEN', 'NOT FOUND')}'")
 print(f"All env keys: {list(os.environ.keys())}")
 print("=================")
 sys.stdout.flush()
@@ -312,7 +312,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 # Entry point
 # ─────────────────────────────────────────────
 if __name__ == "__main__":
-    TOKEN = os.getenv("BOT_TOKEN")
+    TOKEN = os.getenv("BOTTOKEN")
     if not TOKEN:
         raise ValueError(
             "BOT_TOKEN environment variable is not set. "
