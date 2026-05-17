@@ -99,11 +99,37 @@ def is_youtube(url: str) -> bool:
 
 def _base_opts() -> dict:
     """Common yt-dlp options shared by all download functions."""
+    def _base_opts() -> dict:
+    """Common yt-dlp options shared by all download functions."""
     opts = {
         "outtmpl": f"{DOWNLOAD_DIR}/%(title)s.%(ext)s",
         "noplaylist": True,
         "quiet": True,
         "no_warnings": True,
+
+        # ✅ ADD HERE
+        "http_headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+            "Accept-Language": "en-US,en;q=0.9",
+            "Referer": "https://www.youtube.com/",
+        },
+
+        # ✅ ADD HERE
+        "extractor_args": {
+            "youtube": {
+                "player_client": ["android"]
+            }
+        },
+
+        # ✅ optional but useful
+        "retries": 3,
+        "fragment_retries": 3,
+    }
+
+    if USE_COOKIES:
+        opts["cookiefile"] = COOKIES_FILE
+
+    return opts
        
     }
     if USE_COOKIES:
