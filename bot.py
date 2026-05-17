@@ -44,12 +44,14 @@ logger = logging.getLogger(__name__)
 # ─────────────────────────────────────────────
 # Cookies setup
 # ─────────────────────────────────────────────
-COOKIES_FILE = "cookies.txt"
+cookies = os.getenv("YT_COOKIES")
 
-if os.getenv("YT_COOKIES"):
+if cookies and "# Netscape HTTP Cookie File" in cookies:
     with open(COOKIES_FILE, "w", encoding="utf-8") as f:
         f.write(cookies.strip())
-    logger.info("Cookies file written from environment variable.")
+    logger.info("Cookies file written successfully.")
+else:
+    logger.warning("Invalid or missing cookies. Skipping cookies setup.")
 
 
 # ─────────────────────────────────────────────
