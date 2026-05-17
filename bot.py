@@ -131,10 +131,7 @@ def _base_opts() -> dict:
 
     return opts
        
-    }
-    if USE_COOKIES:
-        opts["cookiefile"] = COOKIES_FILE
-    return opts
+   
 
 
 def _resolve_filename(ydl: yt_dlp.YoutubeDL, info: dict, fallback_ext: str = "mp4") -> str:
