@@ -355,7 +355,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 # Entry point
 # ─────────────────────────────────────────────
 if __name__ == "__main__":
-    TOKEN = "8088201:AAEe24CHxDdW3DHX4U0iKJOE668MfxNAVZ8"
+    TOKEN = "8747088201:AAEe24CHxDdW3DHX4U0iKJOE668MfxNAVZ8"
     if not TOKEN:
         raise ValueError(
             "BOT_TOKEN environment variable is not set. "
